@@ -15,22 +15,22 @@ let img;
 let isModelReady;
 
 function setup() {
-  canvasDiv = creareDiv();
+  canvasDiv = createDiv();
   canvas = createCanvas(640, 480);
   canvas.parent(canvasDiv);
   textDiv = createDiv();
   textP = createP("Model loading, Please wait...");
   textP.parent(textDiv);
   buttonDiv = createDiv();
-  submitButton = createButton("Submit");
+  submitButton = createButton("SUBMIT");
   submitButton.parent(buttonDiv);
   submitButton.mousePressed(predictImage);
   resetButton = createButton("RESET");
   resetButton.parent(buttonDiv);
-  resetbutton.mousePressed(resetCanvas);
+  resetButton.mousePressed(resetCanvas);
   buttonDiv.style("display", "none");
   isModelReady = false;
-  doodlenet = ml5.imgClassifier("DoodleNet", modelReady);
+  doodlenet = ml5.imageClassifier("DoodleNet", modelReady);
 }
 
 function draw() {
@@ -41,14 +41,14 @@ function draw() {
 
 }
 function resetCanvas() {
-  backgroung(255);
-  textP.html("Draw your image, then click SUbmit");
+  background(255);
+  textP.html("Draw your image, then click submit");
 }
 
 function modelReady() {
   isModelReady = true;
   buttonDiv.style("display" ,"block");
-  textP.html("Draw your image, then click SUbmit");
+  textP.html("Draw your image, then click submit");
 }
 
 function predictImage() {
